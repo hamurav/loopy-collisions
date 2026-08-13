@@ -1,0 +1,23 @@
+# Collision classes of the loopy polynomial L_G.
+# Read from 22 result file(s) in res8.  The L-, Lhat- and XB-classes coincide.
+#
+# Non-isomorphic connected simple graphs on n = 8 vertices with equal
+# L_G.  In this range the classes of the refined loopy polynomial Lhat_G
+# and of the Tutte symmetric function XB_G are identical.
+#
+# Format:  n  m  graph6 [graph6 ...]   (class size = number of graph6 fields)
+#
+# classes    : 8
+# by size    : 8 of size 2
+# graphs     : 16
+# pairs      : 8
+# edge range : 13..15
+#
+8 13 G?ovtW G?qerw
+8 13 GCRRVW GCRdfW
+8 14 GCRR^W GCRfb[
+8 14 GCRVVW GCRffW
+8 14 GCRdvK GCRfkw
+8 14 GCpfb[ GCqveS
+8 15 GCqrng GCqvdw
+8 15 GCrffW GCrveW

@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper."
+title: "loopy-collisions: exhaustive collision search for the loopy polynomial"
+abstract: >-
+  C and Python code accompanying "The Loopy Polynomial: from Tutte's Universal
+  V-Function to Bizonotopal Geometry".  Verifies that the loopy polynomial, the
+  refined loopy polynomial and the Tutte symmetric function induce the same
+  partition of the connected simple graphs on at most eleven vertices.
+authors:
+  - family-names: Kirillov
+    given-names: Anatol
+    affiliation: "Yanqi Lake Beijing Institute of Mathematical Sciences and Applications"
+  - family-names: Nenashev
+    given-names: Gleb
+    affiliation: "St. Petersburg State University"
+  - family-names: Shapiro
+    given-names: Boris
+    affiliation: "Stockholm University"
+  - family-names: Vaintrob
+    given-names: Arkady
+    affiliation: "University of Oregon"
+version: "1.0.0"
+date-released: "2026-08-13"
+license: MIT
+type: software
+keywords:
+  - loopy polynomial
+  - U-polynomial
+  - polychromate
+  - chromatic symmetric function
+  - Tutte symmetric function
+  - bizonotopal algebra

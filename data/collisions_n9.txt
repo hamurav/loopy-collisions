@@ -1,0 +1,80 @@
+# Collision classes of the loopy polynomial L_G.
+# Read from 29 result file(s) in res9.  The L-, Lhat- and XB-classes coincide.
+#
+# Non-isomorphic connected simple graphs on n = 9 vertices with equal
+# L_G.  In this range the classes of the refined loopy polynomial Lhat_G
+# and of the Tutte symmetric function XB_G are identical.
+#
+# Format:  n  m  graph6 [graph6 ...]   (class size = number of graph6 fields)
+#
+# classes    : 65
+# by size    : 65 of size 2
+# graphs     : 130
+# pairs      : 65
+# edge range : 13..23
+#
+9 13 H?`eeos H?`feOs
+9 14 H?`ebrS H?`fBp[
+9 14 H?`eeo{ H?`fcp[
+9 14 H?`eeqs H?`feQs
+9 15 H?bDRjU H?bDbY]
+9 15 H?befOy H?bfcp[
+9 15 H?qeeqe H?qefIY
+9 16 H?`eesv H?`fctV
+9 16 H?bDUlu H?bDd\]
+9 16 H?bbczM H?be`zM
+9 16 H?qarrY H?qbbpZ
+9 16 H?qeeqf H?qefIZ
+9 16 H?rddjI H?rediY
+9 16 HCQbdZY HCQfcxi
+9 16 HCQbdrk HCQbfrK
+9 16 HCRd`rk HCRdaqx
+9 17 H?`ees~ H?`fct^
+9 17 H?`elj] H?`enil
+9 17 H?bbe]] H?bee[}
+9 17 H?rddjJ H?redi]
+9 17 HCQbfZY HCQfexi
+9 17 HCQfdrk HCQffrK
+9 17 HCRcrpy HCRf`rk
+9 17 HCRcvqs HCRfark
+9 17 HCpbTq] HCpbeo|
+9 18 H?`ejzV H?`fJx^
+9 18 H?befW~ H?bfct^
+9 18 H?qesy| H?qetZ\
+9 18 HCRRVYy HCRdfXy
+9 18 HCRdrre HCRdvX[
+9 18 HCpbvq[ HCpfdq{
+9 18 HCpfTp{ HCpfbj[
+9 19 H?qc}y} H?qe\y}
+9 19 H?rctzZ H?rdmY|
+9 19 HCRRVX| HCRdfY|
+9 19 HCRVVYy HCRffXy
+9 19 HCZbUzU HCZefXu
+9 19 HCpdvre HCrerrd
+9 19 HCpfdnM HCpfeZu
+9 19 HCpfdxm HCqvbzI
+9 19 HCrbRxu HCrdtpy
+9 20 H?ovvym H?qevx}
+9 20 H?re\y} H?res}}
+9 20 HCRVVX| HCRffY|
+9 20 HCZbuzU HCZevXu
+9 20 HCpevNu HCrfeve
+9 20 HCpfbtn HCqveUz
+9 20 HCpvfi{ HCrRvrk
+9 20 HCpvvjK HCrffXy
+9 20 HCqtrp| HCqvRZ{
+9 21 H?ovtZ~ H?qerz~
+9 21 HCRRVZ~ HCRdfZ~
+9 21 HCqvVZ{ HCrvVRu
+9 21 HCrffY| HCrveY|
+9 21 HEjeri} HEjeviy
+9 22 HCRR^Z~ HCRfb^~
+9 22 HCRVVZ~ HCRffZ~
+9 22 HCRdvN~ HCRfkz~
+9 22 HCpfb^~ HCqveV~
+9 22 HEhvVrm HEjRvZ{
+9 22 HEjRvXz HEjTvX|
+9 22 HEjTvZ{ HEjVvpu
+9 23 HCqrnj~ HCqvdz~
+9 23 HCrffZ~ HCrveZ~
+9 23 HEhvvj{ HEjVvZ{

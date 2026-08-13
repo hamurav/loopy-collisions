@@ -1,0 +1,11 @@
+# compiled binaries
+loopy_collisions
+comp_check
+gen_graphs
+*.o
+
+# graph lists and run output (regenerate with geng; far too large to version)
+*.g6
+res*/
+
+__pycache__/
