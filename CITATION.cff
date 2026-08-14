@@ -19,8 +19,10 @@ authors:
   - family-names: Vaintrob
     given-names: Arkady
     affiliation: "University of Oregon"
-version: "1.0.0"
-date-released: "2026-08-13"
+doi: "10.5281/zenodo.21929427"
+repository-code: "https://github.com/hamurav/loopy-collisions"
+version: "1.0.1"
+date-released: "2026-08-14"
 license: MIT
 type: software
 keywords:

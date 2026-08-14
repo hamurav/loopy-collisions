@@ -1,5 +1,7 @@
 # loopy-collisions
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21929427.svg)](https://doi.org/10.5281/zenodo.21929427)
+
 Code accompanying **A. Kirillov, G. Nenashev, B. Shapiro and A. Vaintrob,
 *The Loopy Polynomial: from Tutte's Universal V-Function to Bizonotopal
 Geometry*** (Section 4.3, "The computation").
@@ -163,7 +165,11 @@ If you use this code, please cite both the paper and the archived release:
 
 > A. Kirillov, G. Nenashev, B. Shapiro and A. Vaintrob,
 > *loopy-collisions: exhaustive collision search for the loopy polynomial*,
-> version 1.0.0, Zenodo, 2026. doi:10.5281/zenodo.XXXXXXX
+> Zenodo, 2026. doi:10.5281/zenodo.21929427
+
+That is the *concept* DOI: it always resolves to the newest version.  To pin a
+specific one, use its own DOI instead (v1.0.0 is
+`10.5281/zenodo.21929428`).
 
 `CITATION.cff` carries the same information in machine-readable form.
 
