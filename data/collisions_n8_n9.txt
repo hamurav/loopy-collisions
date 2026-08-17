@@ -1,0 +1,81 @@
+# Collision pairs: non-isomorphic connected simple graphs with equal loopy
+# polynomial L_G (equivalently, in every case below, equal Tutte symmetric
+# function XB_G and equal extended U-polynomial U^ext).
+# Independently recomputed by the referee; format: n  m  graph6  graph6
+
+## n = 8   (8 pairs)
+8  13  GCRdfW  GCRRVW
+8  13  G?ovtW  G?qerw
+8  14  GCRffW  GCRVVW
+8  14  GCRfkw  GCRdvK
+8  14  GCRR^W  GCRfb[
+8  14  GCqveS  GCpfb[
+8  15  GCrffW  GCrveW
+8  15  GCqvdw  GCqrng
+
+## n = 9   (65 pairs)
+9  13  H?`feOs  H?`eeos
+9  14  H?`feQs  H?`eeqs
+9  14  H?`ebrS  H?`fBp[
+9  14  H?`fcp[  H?`eeo{
+9  15  H?bfcp[  H?befOy
+9  15  H?qefIY  H?qeeqe
+9  15  H?bDRjU  H?bDbY]
+9  16  HCQbfrK  HCQbdrk
+9  16  HCRd`rk  HCRdaqx
+9  16  H?qarrY  H?qbbpZ
+9  16  H?rddjI  H?rediY
+9  16  HCQfcxi  HCQbdZY
+9  16  H?bbczM  H?be`zM
+9  16  H?bDUlu  H?bDd\]
+9  16  H?qefIZ  H?qeeqf
+9  16  H?`fctV  H?`eesv
+9  17  HCRcvqs  HCRfark
+9  17  HCQffrK  HCQfdrk
+9  17  HCRf`rk  HCRcrpy
+9  17  HCQfexi  HCQbfZY
+9  17  HCpbTq]  HCpbeo|
+9  17  H?redi]  H?rddjJ
+9  17  H?`elj]  H?`enil
+9  17  H?bbe]]  H?bee[}
+9  17  H?`fct^  H?`ees~
+9  18  HCpfdq{  HCpbvq[
+9  18  HCpfTp{  HCpfbj[
+9  18  HCRdvX[  HCRdrre
+9  18  HCRdfXy  HCRRVYy
+9  18  H?qetZ\  H?qesy|
+9  18  H?befW~  H?bfct^
+9  18  H?`ejzV  H?`fJx^
+9  19  HCrdtpy  HCrbRxu
+9  19  HCqvbzI  HCpfdxm
+9  19  HCRffXy  HCRVVYy
+9  19  HCpdvre  HCrerrd
+9  19  HCpfeZu  HCpfdnM
+9  19  HCZefXu  HCZbUzU
+9  19  H?qe\y}  H?qc}y}
+9  19  HCRdfY|  HCRRVX|
+9  19  H?rdmY|  H?rctzZ
+9  20  HCrRvrk  HCpvfi{
+9  20  HCpvvjK  HCrffXy
+9  20  HCqvRZ{  HCqtrp|
+9  20  HCZevXu  HCZbuzU
+9  20  H?ovvym  H?qevx}
+9  20  H?re\y}  H?res}}
+9  20  HCrfeve  HCpevNu
+9  20  HCRffY|  HCRVVX|
+9  20  HCqveUz  HCpfbtn
+9  21  HCqvVZ{  HCrvVRu
+9  21  HEjeviy  HEjeri}
+9  21  HCrffY|  HCrveY|
+9  21  HCRdfZ~  HCRRVZ~
+9  21  H?ovtZ~  H?qerz~
+9  22  HEjTvZ{  HEjVvpu
+9  22  HEjRvZ{  HEhvVrm
+9  22  HEjTvX|  HEjRvXz
+9  22  HCRffZ~  HCRVVZ~
+9  22  HCRfkz~  HCRdvN~
+9  22  HCRR^Z~  HCRfb^~
+9  22  HCqveV~  HCpfb^~
+9  23  HEhvvj{  HEjVvZ{
+9  23  HCrffZ~  HCrveZ~
+9  23  HCqvdz~  HCqrnj~

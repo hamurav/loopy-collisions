@@ -4,19 +4,27 @@
 
 Code accompanying **A. Kirillov, G. Nenashev, B. Shapiro and A. Vaintrob,
 *The Loopy Polynomial: from Tutte's Universal V-Function to Bizonotopal
-Geometry*** (Section 4.3, "The computation").
+Geometry*** (Sections 4.3 and 4.4).
 
-It searches exhaustively for pairs of non-isomorphic connected simple graphs
-with equal **loopy polynomial** `L_G`, equal **refined loopy polynomial**
-`Lhat_G`, or equal **Tutte symmetric function** `XB_G`, and checks that the
-three induce the same partition. Verified through **n = 11** vertices
+Two searches, sharing one engine.
+
+**Simple graphs.** Exhaustive search for pairs of non-isomorphic connected
+simple graphs with equal **loopy polynomial** `L_G`, equal **refined loopy
+polynomial** `Lhat_G`, or equal **Tutte symmetric function** `XB_G`, checking
+that the three induce the same partition. They do, through **n = 11** vertices
 (1 006 700 565 connected graphs).
+
+**Loopless multigraphs.** The same search with multiplicities, over 48 229 871
+multigraphs. Here the three do *not* agree: `L` and `Lhat` still induce the
+same partition, but `XB` (equivalently the U-polynomial) is strictly coarser.
+The smallest witness has five vertices and ten edges, and answers a question of
+Merino and Noble; `python3 mn_example.py` verifies it from the definitions.
 
 ## Quick start
 
 ```sh
-make            # builds loopy_collisions, comp_check, gen_graphs
-make check      # reproduces the published n <= 9 answers, a few seconds
+make            # builds all five programs
+make check      # reproduces the published small answers, a few seconds
 ```
 
 `make check` should print, for `n = 9`:
@@ -26,6 +34,13 @@ SUMMARY L n=9 graphs=152 classes=65 pairs=65 edges=[13,23]
 VERDICT  L-classes == Lhat-classes : YES
 VERDICT  Lhat-classes == XB-classes: YES
 VERDICT  L-classes == XB-classes   : YES
+```
+
+and, for the multigraph half, the `n = 5`, `mu = 3` row of the table below
+together with
+
+```
+VERDICT  Lhat-classes == XB-classes  : NO  <-- COUNTEREXAMPLE
 ```
 
 On macOS use the default `cc` (clang). Do **not** pass `-fopenmp`; the code
@@ -107,6 +122,9 @@ share one format. This is what `comp_check` and `lift.py` read.
   `data/collisions_n11.txt`.
 * `gp.py` — slow, independent reference implementations straight from the
   defining expansions, used to validate the fast code on small graphs.
+* `mn_example.py` — verifies the five-vertex multigraph pair of Theorem 4.11
+  from the definitions, exactly over **Z**, sharing no code with anything else
+  here. Prints the two displays quoted in the paper.
 
 ## Results
 
@@ -120,6 +138,84 @@ share one format. This is what `comp_check` and `lift.py` read.
 
 In every case the L-, Lhat- and XB-classes coincide exactly. The complete
 lists are in `data/`, one file per `n`, in the format described above.
+
+## Multigraphs
+
+`mg_collisions.c` runs the same search on loopless multigraphs. It reads the
+text format of nauty's `multig`,
+
+```
+n m  v1 w1 mult1  v2 w2 mult2  ...
+```
+
+and computes the `L`, `Lhat`, `XB` and `U` fingerprints of every graph read;
+`e_G(S)` simply counts edges with multiplicity, and nothing else in the
+algorithm changes. There is no sieve — the cheap filters would each need
+re-justifying for multigraphs, and at these vertex counts `3^n` is negligible.
+Since `multig` emits pairwise non-isomorphic graphs, any class of size >= 2 is
+a genuine collision and no isomorphism testing is needed.
+
+```sh
+geng -q -c 6 | multig -m4 -T | ./mg_collisions      # with nauty
+./gen_graphs 6 | ./gen_multi 4 | ./mg_collisions    # without
+
+sh run_multi.sh 6 4                                 # bucketed by edge count
+```
+
+`gen_multi.c` is a self-contained stand-in for `multig`: for each simple graph
+it computes Aut(G) by brute force over the `n!` vertex permutations and keeps
+one multiplicity vector per orbit. It is the bottleneck (`mu^|E|` assignments
+per underlying graph), so prefer nauty when you have it.
+
+`run_multi.sh n mu` splits the work by edge count with `mg_collisions -m M`,
+one file per bucket, and reuses `all.mg` if it is already there. **Use it for
+anything large**: the unbucketed `(6,4)` run needs about 3 GB resident and
+thrashes, while the bucketed one peaks well under 1 GB. `check_partial.sh`
+reports the must-hold verdicts on a run still in progress.
+
+### Results
+
+| n | mu | multigraphs | L-classes | Lhat-classes | XB-classes | U-classes |
+|---:|---:|---:|---:|---:|---:|---:|
+| 4 | 9 | 45 210 | 0 | 0 | 0 | 0 |
+| 5 | 2 | 712 | 0 | 0 | 0 | 0 |
+| 5 | 3 | 10 364 | 0 | 0 | 12 | 12 |
+| 5 | 4 | 88 985 | 0 | 0 | 58 | 58 |
+| 5 | 5 | 530 657 | 0 | 0 | 166 | 166 |
+| 5 | 6 | 2 431 555 | 0 | 0 | 360 | 360 |
+| 6 | 2 | 24 576 | 15 | 15 | 30 | 30 |
+| 6 | 3 | 1 590 368 | 500 | 500 | 1 130 | 1 130 |
+| 6 | 4 | 43 477 490 | 4 848 | 4 848 | 10 164 | 10 164 |
+| 7 | 2 | 2 275 616 | 1 213 | 1 213 | 1 469 | 1 469 |
+
+The rows nest — `(5,2) ... (5,5)` sit inside `(5,6)`, and `(6,2), (6,3)` inside
+`(6,4)` — so the four maximal rows account for **48 229 871** multigraphs in
+all. Throughout:
+
+* `L`-classes and `Lhat`-classes are **identical**, on every graph tested;
+* `XB`-classes and `U`-classes are identical (Sarmiento's equivalence);
+* the `Lhat`-classes are **strictly finer** than the `XB`-classes. This is the
+  counterexample: on loopless multigraphs `XB` collapses classes that the loopy
+  polynomial keeps apart.
+
+Every `L`-class found is a pair; two `XB`-classes at `(6,4)` have three
+members. `data/multigraphs_n6_mu4.txt` holds all 4 848 `L`-classes and all
+10 164 `XB`-classes of the largest run, produced by
+
+```sh
+python3 make_mg_lists.py res_6_4 -o data/multigraphs_n6_mu4.txt
+```
+
+which also re-derives the verdicts from the raw `CLASS` lines rather than
+trusting the ones the C program printed, and exits nonzero if a must-hold one
+fails.
+
+**Validation.** With `mu = 1` the multigraph pipeline reproduces the published
+simple-graph answers exactly (at `n = 8`: 8 classes, edges 13–15, all four
+invariants agreeing) — worth rerunning after any change to `mg_collisions.c`,
+since it exercises the same code paths on a known answer. The five-vertex
+counterexample itself was confirmed exactly over **Z** by `mn_example.py` and,
+independently, by `gp.py`.
 
 ## How it works
 

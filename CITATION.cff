@@ -5,7 +5,10 @@ abstract: >-
   C and Python code accompanying "The Loopy Polynomial: from Tutte's Universal
   V-Function to Bizonotopal Geometry".  Verifies that the loopy polynomial, the
   refined loopy polynomial and the Tutte symmetric function induce the same
-  partition of the connected simple graphs on at most eleven vertices.
+  partition of the connected simple graphs on at most eleven vertices, and that
+  on loopless multigraphs they do not: the Tutte symmetric function, equivalently
+  the U-polynomial, is strictly coarser.  The smallest witness, on five vertices
+  and ten edges, answers a question of Merino and Noble.
 authors:
   - family-names: Kirillov
     given-names: Anatol
@@ -21,8 +24,8 @@ authors:
     affiliation: "University of Oregon"
 doi: "10.5281/zenodo.21929427"
 repository-code: "https://github.com/hamurav/loopy-collisions"
-version: "1.0.1"
-date-released: "2026-08-14"
+version: "1.1.0"
+date-released: "2026-08-16"
 license: MIT
 type: software
 keywords:
@@ -32,3 +35,5 @@ keywords:
   - chromatic symmetric function
   - Tutte symmetric function
   - bizonotopal algebra
+  - multigraphs
+  - extended U-polynomial

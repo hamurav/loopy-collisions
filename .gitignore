@@ -2,10 +2,13 @@
 loopy_collisions
 comp_check
 gen_graphs
+mg_collisions
+gen_multi
 *.o
 
 # graph lists and run output (regenerate with geng; far too large to version)
 *.g6
+*.mg
 res*/
 
 __pycache__/
