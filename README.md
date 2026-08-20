@@ -122,9 +122,12 @@ share one format. This is what `comp_check` and `lift.py` read.
   `data/collisions_n11.txt`.
 * `gp.py` — slow, independent reference implementations straight from the
   defining expansions, used to validate the fast code on small graphs.
-* `mn_example.py` — verifies the five-vertex multigraph pair of Theorem 4.11
-  from the definitions, exactly over **Z**, sharing no code with anything else
-  here. Prints the two displays quoted in the paper.
+* `mn_example.py` — verifies the five-vertex multigraph pair of the paper's
+  Merino--Noble theorem from the definitions, exactly over **Z**, sharing no
+  code with anything else here. Prints the two displays quoted in the paper.
+* `min_edges.py` — exhaustive search bounded by edge count rather than
+  multiplicity; establishes that no counterexample has fewer than nine edges.
+  See the multigraph section below.
 
 ## Results
 
@@ -216,6 +219,44 @@ invariants agreeing) — worth rerunning after any change to `mg_collisions.c`,
 since it exercises the same code paths on a known answer. The five-vertex
 counterexample itself was confirmed exactly over **Z** by `mn_example.py` and,
 independently, by `gp.py`.
+
+### How few edges can a counterexample have?
+
+The table above bounds the *multiplicity*. `min_edges.py` bounds the number of
+**edges** instead, which is what settles minimality:
+
+```sh
+./gen_graphs 6 | python3 min_edges.py --maxm 9      # seconds
+geng -q -c 8   | python3 min_edges.py --maxm 9      # with nauty
+```
+
+It reads connected simple graphs in graph6 as the possible *underlying* graphs,
+enumerates every multiplicity vector with total at most `--maxm`, one per
+`Aut(G)`-orbit, and computes `L` and `XB` exactly over **Z** from their
+defining expansions — no fingerprints, no modular arithmetic, no code shared
+with the C programs.
+
+This answers the question completely for `m <= 9`. A connected graph with `m`
+edges has at most `m+1` vertices, so a counterexample with at most eight edges
+would live on at most nine vertices; and for `m = 9` the only case beyond
+`n = 9` is a tree on ten vertices, which is simple, and forests are separated
+by all of these invariants. Running `n = 2..9`:
+
+| n | multigraphs with m ≤ 9 | collisions |
+|---:|---:|---|
+| 2–5 | 9 / 43 / 233 / 722 | none |
+| 6 | 1 462 | one, at m = 9 |
+| 7 | 1 738 | one, at m = 9 |
+| 8 | 1 275 | one, at m = 9 |
+| 9 | 526 | one, at m = 9 |
+
+So **no counterexample has fewer than nine edges**, and nine is attained. The
+six-vertex witness has maximum multiplicity two, so it also sits in the `(6,2)`
+row above — it is the single `XB`-class in the `m = 9` bucket of the `(6,4)`
+run. The five-vertex pair of the paper is smallest in *vertices*, not in edges.
+
+Cost is dominated by computing `Aut(G)` over the `n!` permutations, so `n = 9`
+takes a couple of minutes. `n = 10` is not attempted and is not needed.
 
 ## How it works
 

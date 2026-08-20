@@ -16,6 +16,7 @@ check: all
 	./gen_graphs 9 > /tmp/c9.g6 && ./loopy_collisions -q < /tmp/c9.g6 | grep -E 'SUMMARY|VERDICT'
 	python3 mn_example.py
 	./gen_graphs 5 | ./gen_multi 3 | ./mg_collisions -q | grep -E 'SUMMARY|VERDICT'
+	./gen_graphs 6 | python3 min_edges.py --maxm 9
 
 clean: ; rm -f loopy_collisions comp_check gen_graphs mg_collisions gen_multi
 .PHONY: all check clean
